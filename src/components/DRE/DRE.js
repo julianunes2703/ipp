@@ -2,7 +2,7 @@ import React, { useMemo, useState, useEffect } from "react";
 import {
   ResponsiveContainer,
   BarChart, Bar,
-  CartesianGrid, XAxis, YAxis, Tooltip, Legend, Cell
+  CartesianGrid, XAxis, YAxis, Tooltip, Legend, Cell, LabelList
 } from "recharts";
 import "./DRE.css";
 
@@ -72,7 +72,7 @@ const DATA = [
    {
     mes: "Outubro",
     faturamento: 4347730,
-    ebitda: 486362,
+    ebitda: -486362,
     cpv: 2758997,
     saldoBanco: 0,
     custos: {
@@ -84,7 +84,7 @@ const DATA = [
    {
     mes: "Novembro",
     faturamento: 716122,
-    ebitda: 1680025,
+    ebitda: -1680025,
     cpv: 731917,
     saldoBanco: 0,
     custos: {
@@ -184,20 +184,29 @@ export default function DREFixoDashboard() {
       <section className="dre-grid single">
         <div className="dre-panel">
           <h3>Custos — {current.mes}</h3>
-          <ResponsiveContainer width="100%" height={340}>
-            <BarChart data={custosChart} margin={{ left: 12, right: 12, top: 12, bottom: 4 }}>
-              <CartesianGrid stroke={GRAY_3} strokeDasharray="3 3" />
-              <XAxis dataKey="nome" tick={{ fill: GRAY_2 }} />
-              <YAxis tick={{ fill: GRAY_2 }} />
-              <Tooltip formatter={(v) => money(v)} contentStyle={{ borderRadius: 8 }} />
-              <Legend wrapperStyle={{ color: GRAY_2 }} />
-              <Bar dataKey="valor" name="Valor">
-                <Cell fill={BAR_1} />
-                <Cell fill={BAR_2} />
-                <Cell fill={BAR_3} />
-              </Bar>
-            </BarChart>
-          </ResponsiveContainer>
+            <ResponsiveContainer width="100%" height={340}>
+          <BarChart data={custosChart} margin={{ left: 12, right: 12, top: 12, bottom: 4 }}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="nome" tick={{ fill: GRAY_2 }} />
+            <YAxis tick={{ fill: GRAY_2 }} />
+            <Tooltip formatter={(v) => money(v)} contentStyle={{ borderRadius: 8 }} />
+            <Legend wrapperStyle={{ color: GRAY_2 }} />
+
+            <Bar dataKey="valor" name="Valor">
+              <Cell fill={BAR_1} />
+              <Cell fill={BAR_2} />
+              <Cell fill={BAR_3} />
+              {/* Aqui adicionamos os valores sobre as barras */}
+              <LabelList 
+                dataKey="valor" 
+                position="top" 
+                formatter={(v) => money(v)} 
+                fill={GRAY_2} 
+              />
+            </Bar>
+          </BarChart>
+        </ResponsiveContainer>
+
         </div>
       </section>
     </div>
