@@ -103,7 +103,6 @@ const money = (v) =>
     minimumFractionDigits: 0,
   });
 
-const GRAY_1 = "#111827"; // text
 const GRAY_2 = "#6B7280"; // axis/legend
 const GRAY_3 = "#9CA3AF"; // grid
 const BAR_1 = "#4B5563";  // mão de obra
