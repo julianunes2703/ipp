@@ -104,7 +104,6 @@ const money = (v) =>
   });
 
 const GRAY_2 = "#6B7280"; // axis/legend
-const GRAY_3 = "#9CA3AF"; // grid
 const BAR_1 = "#4B5563";  // mão de obra
 const BAR_2 = "#9CA3AF";  // custos operacionais
 const BAR_3 = "#D1D5DB";  // despesas globais
