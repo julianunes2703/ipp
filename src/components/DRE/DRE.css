@@ -1,0 +1,129 @@
+:root{
+  --bg: #f7f7f8;
+  --panel: #ffffff;
+  --border: #e5e7eb;
+  --text: #111827;
+  --muted: #6b7280;
+  --accent: #9ca3af; /* cinza */
+  --shadow: 0 6px 20px rgba(0,0,0,.06);
+}
+
+/* layout base */
+.dre-page{
+  background: var(--bg);
+  min-height: 100vh;
+  color: var(--text);
+  padding: 24px;
+}
+
+/* toolbar */
+.dre-toolbar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.dre-tabs button{
+  background: transparent;
+  border: 1px solid var(--border);
+  padding: 8px 14px;
+  border-radius: 12px;
+  margin-right: 8px;
+  color: var(--muted);
+  font-weight: 600;
+}
+.dre-tabs button.active{
+  color: var(--text);
+  border-color: var(--accent);
+  box-shadow: var(--shadow);
+  background: #fff;
+}
+.dre-select{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.dre-select label{ color: var(--muted); font-weight: 600; }
+.dre-select select{
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 8px 10px;
+  background: #fff;
+}
+
+/* cards */
+.dre-cards-grid{
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 20px;
+}
+@media (max-width: 1200px){
+  .dre-cards-grid{ grid-template-columns: repeat(2, 1fr); }
+}
+.dre-card{
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: var(--shadow);
+}
+.dre-card h4{
+  margin: 0 0 6px;
+  font-size: 14px;
+  color: var(--muted);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+.dre-card-row{
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+.dre-card-value{
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--text);
+}
+
+/* grid painéis */
+.dre-grid.single .dre-panel{ grid-column: 1 / -1; }
+.dre-grid{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+.dre-panel{
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: var(--shadow);
+}
+.dre-panel h3{
+  margin: 0 0 8px;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+/* tabelas (se usar no futuro) */
+.dre-table-wrap{ overflow:auto; border-radius: 12px; border: 1px solid var(--border); }
+.dre-table{
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+}
+.dre-table thead th{
+  font-size: 12px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  padding: 10px;
+  border-bottom: 1px solid var(--border);
+}
+.dre-table td{
+  padding: 10px;
+  border-bottom: 1px solid var(--border);
+}
+.dre-table .num{ text-align: right; font-variant-numeric: tabular-nums; }
